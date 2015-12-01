@@ -58,7 +58,7 @@ _minihub() {
 JSON
         curl -u "$username" -X POST -d @- \
           "https://api.github.com/repos/$2/$repo/pulls" |
-          grep '"url":' | head -1 | sed -e 's/.*"url": (.*),/\1/'
+          grep '"html_url":' | head -1 | sed -e 's/.*"html_url": "\(.*\)",/\1/'
       ;;
     *)
       echo "I don't know how to '$1'"
